@@ -27,8 +27,8 @@ async function getWeather(req, res) {
         let weather = data;
         let weatherArray = weather.data.data.map((value, idx) => {
           return new Forecast(
-            `Date:${value.datetime}`,
-            `Temp of ${value.temp}`,
+            `Date: ${value.datetime}`,
+            `Temp of: ${value.temp}°Celsius`,
             `Sky Conditions: ${value.weather.description}`,
             `UV index: ${value.uv}`
           );
