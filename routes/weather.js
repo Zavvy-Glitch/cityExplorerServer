@@ -14,7 +14,7 @@ async function getWeather(req, res) {
     if (!cache[key]) {
       cache[key] = {};
       cache[key].timestamp = Date.now();
-      axios.get(url).then((data) => {
+      await axios.get(url).then((data) => {
         class Forecast {
           constructor(date, temp, description, uv) {
             this.date = date;
@@ -41,7 +41,7 @@ async function getWeather(req, res) {
       res.send(cache[key].data);
     }
   } catch (err) {
-    res.send('Error: Something Went Wrong!', err);
+    res.status(500).send('Error: Something Went Wrong!', err);
   }
 }
 

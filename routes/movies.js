@@ -12,7 +12,7 @@ async function getMovies(req, res) {
     if (!cache[key]) {
       cache[key] = {};
       cache[key].timestamp = Date.now();
-      axios.get(url).then((data) => {
+      await axios.get(url).then((data) => {
         const topMovies = data.data.results;
         const sortedTopMovies = topMovies.sort(
           (a, b) => b.popularity - a.popularity
@@ -60,7 +60,7 @@ async function getMovies(req, res) {
       res.send(cache[key].data);
     }
   } catch (err) {
-    res.send(500).send(err);
+    res.status(500).send(err);
   }
 }
 
