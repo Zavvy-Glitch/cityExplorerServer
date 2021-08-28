@@ -3,7 +3,7 @@
 ![API-Server-Cycle](https://user-images.githubusercontent.com/84699682/130692860-35ddb15c-ce65-4e17-a441-fb6610380ed5.png)
 
 **Author**: Chattray Chea
-**Version**: 1.0.3
+**Version**: 1.0.4
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
@@ -24,6 +24,8 @@ To view that application head here [City Explorer](https://heuristic-sinoussi-4c
 08-24-2021 18:37 - Server built using JSON dummy data. GET requests/responses determined based upon API documentation.
 
 08-25-2021 16:58 - Server completed with API calls to pre-existing API's. Server deployed to Heroku for global access to the user.
+
+08-26-2021 17:04 - Server now has persistance with the addition of a cache.
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
@@ -52,3 +54,15 @@ Start time: 12:50
 Finish time: 16:45
 
 Actual time needed to complete: 3hrs 55minutes
+
+## Lab: Class 10
+
+Name of feature: Cache
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 12:45
+
+Finish time: 14:30
+
+Actual time needed to complete: 1 hr 45 minutes
