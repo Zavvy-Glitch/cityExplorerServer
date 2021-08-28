@@ -3,6 +3,15 @@
 const axios = require('axios');
 const cache = require('./cache.js');
 
+class Forecast {
+  constructor(date, temp, description, uv) {
+    this.date = date;
+    this.temprature = temp;
+    this.description = description;
+    this.uv = uv;
+  }
+}
+
 async function getWeather(req, res) {
   let lat = req.query.lat;
   let lon = req.query.lon;
@@ -15,15 +24,6 @@ async function getWeather(req, res) {
       cache[key] = {};
       cache[key].timestamp = Date.now();
       await axios.get(url).then((data) => {
-        class Forecast {
-          constructor(date, temp, description, uv) {
-            this.date = date;
-            this.temprature = temp;
-            this.description = description;
-            this.uv = uv;
-          }
-        }
-
         let weather = data;
         let weatherArray = weather.data.data.map((value, idx) => {
           return new Forecast(

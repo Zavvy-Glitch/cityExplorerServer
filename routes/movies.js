@@ -3,6 +3,26 @@
 const axios = require('axios');
 const cache = require('./cache.js');
 
+class Movie {
+  constructor(
+    title,
+    overView,
+    averageVotes,
+    totalVotes,
+    imageUrl,
+    popularity,
+    releasedOn
+  ) {
+    this.title = title;
+    this.overView = overView;
+    this.averageVotes = averageVotes;
+    this.totalVotes = totalVotes;
+    this.imageUrl = imageUrl;
+    this.popularity = popularity;
+    this.releasedOn = releasedOn;
+  }
+}
+
 async function getMovies(req, res) {
   const searchQuery = req.query.searchQuery;
   const key = 'movies-' + searchQuery;
@@ -18,26 +38,6 @@ async function getMovies(req, res) {
           (a, b) => b.popularity - a.popularity
         );
         const newMovieArray = [];
-
-        class Movie {
-          constructor(
-            title,
-            overView,
-            averageVotes,
-            totalVotes,
-            imageUrl,
-            popularity,
-            releasedOn
-          ) {
-            this.title = title;
-            this.overView = overView;
-            this.averageVotes = averageVotes;
-            this.totalVotes = totalVotes;
-            this.imageUrl = imageUrl;
-            this.popularity = popularity;
-            this.releasedOn = releasedOn;
-          }
-        }
 
         for (let i = 0; i < 20; i++) {
           newMovieArray.push(
